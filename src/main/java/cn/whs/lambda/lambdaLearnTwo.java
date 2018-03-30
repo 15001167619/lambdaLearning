@@ -12,6 +12,7 @@ public class lambdaLearnTwo {
 
     //静态方法
     static Integer factorial(Integer parameter){
+        if(parameter==null)return null;
         if(parameter<0) return 0;
         if (parameter <= 1){
             return parameter;
@@ -31,7 +32,7 @@ public class lambdaLearnTwo {
         Function<Integer,Integer> function = (a) -> lambdaLearnTwo.factorial(a);
         Function<Integer,Integer> function2 = lambdaLearnTwo :: factorial;
         System.out.println(function.apply(3));
-        System.out.println(function2.apply(4));
+        System.out.println(function2.apply(null));
 
     }
 
