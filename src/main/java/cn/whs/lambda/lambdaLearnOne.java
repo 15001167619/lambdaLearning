@@ -91,16 +91,6 @@ public class lambdaLearnOne {
         BinaryOperator<Integer> binaryOperator = (a,b) -> a * b;
         System.out.println(binaryOperator.apply(3,5));
 
-
-
-
-
-
-
-
-
-
-
     }
 
 }
