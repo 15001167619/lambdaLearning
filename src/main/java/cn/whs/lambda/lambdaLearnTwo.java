@@ -12,6 +12,7 @@ public class lambdaLearnTwo {
 
     //静态方法
     static Integer factorial(Integer parameter){
+        if(parameter<0) return 0;
         if (parameter <= 1){
             return parameter;
         }else {
