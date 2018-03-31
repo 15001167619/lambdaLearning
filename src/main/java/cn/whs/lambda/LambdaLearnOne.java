@@ -10,7 +10,7 @@ import java.util.function.*;
  * @description 常用函数式接口示例
  * @date 2018-03-30 14:40
  */
-public class lambdaLearnOne {
+public class LambdaLearnOne {
 
     static String getStr(){
         return "您的小可爱已上线";
