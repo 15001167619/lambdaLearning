@@ -62,6 +62,7 @@ public class LambdaLearnTwo {
         consumer1.accept(200);
         consumer2.accept(300);
 
+        System.out.println("############# 对象方法引用 ################");
          /*
           *  对象方法引用
           *  条件：抽象方法必须有参数类型，且第一个参数类型必须是实例方法的类型，
@@ -101,6 +102,8 @@ public class LambdaLearnTwo {
             System.out.println(biFunction.apply(new Person(),"Root").toString());
             BiFunction<Person,String,Person> biFunction1 = (person,name) -> new Person().setName(person,name);
             System.out.println(biFunction1.apply(new Person(),"Admin").toString());
+
+            System.out.println("############# 构造方法引用 ################");
 
           /*
            *  构造方法(构造函数)引用
