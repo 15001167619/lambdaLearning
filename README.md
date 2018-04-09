@@ -45,3 +45,9 @@
 ####  (41)ToLongBiFunction<T,U>      接受两个输入参数，返回一个long类型结果
 ####  (42)ToLongFunction<T>          接受一个输入参数，返回一个long类型结果
 ###   (43)UnaryOperator<T>           接受一个参数为类型T,返回值类型也为T
+
+## Stream 流学习
+
+### Stream 流 处理数组、集合的Api，不是数据机构，没有内部存储，不支持索引访问，具有延迟计算并支持并行、过滤、查找、转换、聚合等系列操作
+###   Stream 分为 源 source（数组、集合、生成器方法、I/O流通道等）、中间操作（filter过滤、distinct去重、sorted排序、limit、skip截取、转换map/flatMao/peek其它）、终止操作（forEach循环、min/max/count/average计算、anyMatch/allMatch/noneMatch/findFirst/findAny匹配、reduce汇聚、toArray/collect收集器）
+###   Stream 流可以有n（n>=0）个中间操作、1个终止操作。
