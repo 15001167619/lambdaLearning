@@ -1,4 +1,4 @@
-package cn.whs.lambda;
+package cn.whs.lambda.stream;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  * @description Stream 流创建
  * @date 2018-04-03 9:41
  */
-public class StreamApiStudy {
+public class StreamApiCreateStudy {
 
     //Stream 流的创建
     //(一)通过数组创建流

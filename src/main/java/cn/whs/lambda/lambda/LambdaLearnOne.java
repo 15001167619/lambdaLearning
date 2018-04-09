@@ -1,4 +1,4 @@
-package cn.whs.lambda;
+package cn.whs.lambda.lambda;
 
 import lombok.Data;
 
@@ -80,7 +80,7 @@ public class LambdaLearnOne {
          * BinaryOperator 输入与输出是同一类型
          */
         System.out.println("##########   指定俩个输入 一个输出 ->BiFunction 不同类型   ########");
-        BiFunction<String,Integer,User> biFunction = (name,age) -> {
+        BiFunction<String,Integer,User> biFunction = (name, age) -> {
             System.out.println("姓名：" + name);
             System.out.println("年龄：" + age);
             return new User(name,age);

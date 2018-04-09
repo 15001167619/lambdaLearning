@@ -1,4 +1,4 @@
-package cn.whs.lambda;
+package cn.whs.lambda.lambda;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -93,14 +93,14 @@ public class LambdaLearnTwo {
             //Consumer<Person> consumer6 = Person1::userList; 错误的
             Consumer<Person> consumer6 = new Person1()::userList;
 
-            BiConsumer<Person,String> biConsumer = (person,name) -> new Person().setPersonName(name);
-            BiConsumer<Person,String> biConsumer1 = Person :: setPersonName;
+            BiConsumer<Person,String> biConsumer = (person, name) -> new Person().setPersonName(name);
+            BiConsumer<Person,String> biConsumer1 = Person:: setPersonName;
             biConsumer.accept(new Person(),"慕小谦");
             biConsumer1.accept(new Person(),"小可爱");
 
-            BiFunction<Person,String,Person> biFunction = (person,name) -> new Person().setName(person,name);
+            BiFunction<Person,String,Person> biFunction = (person, name) -> new Person().setName(person,name);
             System.out.println(biFunction.apply(new Person(),"Root").toString());
-            BiFunction<Person,String,Person> biFunction1 = (person,name) -> new Person().setName(person,name);
+            BiFunction<Person,String,Person> biFunction1 = (person, name) -> new Person().setName(person,name);
             System.out.println(biFunction1.apply(new Person(),"Admin").toString());
 
             System.out.println("############# 构造方法引用 ################");
@@ -122,12 +122,12 @@ public class LambdaLearnTwo {
             //有参构造函数
             Consumer<String> consumer11 = (name) -> new Person(name);
             consumer11.accept("慕小谦");
-            Consumer<String> consumer12 = Person :: new;
+            Consumer<String> consumer12 = Person:: new;
             consumer12.accept("武海升");
 
             Function<String,Person> function1 = (name) -> new Person(name);
             System.out.println(function1.apply("小可爱"));
-            Function<String,Person> function3 = Person :: new;
+            Function<String,Person> function3 = Person:: new;
             System.out.println(function3.apply("小老虎"));
 
     }
@@ -147,7 +147,7 @@ class Person{
     }
 
 
-    public Person setName(Person person,String name) {
+    public Person setName(Person person, String name) {
         person.name = name;
         return person;
     }
