@@ -1,5 +1,9 @@
 package cn.whs.lambda;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.*;
 
 /**
@@ -64,23 +68,20 @@ public class LambdaLearnTwo {
           *        最后抽象方法剩余的参数恰好可以当作实例方法的参数
           *  语法：类名 :: instMethodName
           *        lambda 表达式 (inst,args) -> 类名.instMethodName(args)
+          *
+          *  没有输入参数，则不能使用对象方法引用
+          *       Runnable run = () -> {};
+          *       Supplier<Integer> supplier = ()-> 100;
+          *       Closeable closeable = () -> {};
+          *
+          *  只有一个参数类型的
+          *  Consumer<Person> consumer3 = (person) -> new Person().userList();
+          *  输入参数 Person 实例对象是Person 满足条件
+          *  但  Consumer<Person> consumer6 = Person1::userList;
+          *  输入参数与实例对象属于不同类型，不满足对象引用的条件，故而不能使用对象引用的条件 但可以用实例方法
+          *  Supplier<Integer> supplier = ()-> 100;
+          *  Closeable closeable = () -> {};
           */
-           /**
-            * 没有输入参数，则不能使用对象方法引用
-            *       Runnable run = () -> {};
-            *       Supplier<Integer> supplier = ()-> 100;
-            *       Closeable closeable = () -> {};
-            */
-
-        /**
-         * 只有一个参数类型的
-         *  Consumer<Person> consumer3 = (person) -> new Person().userList();
-         *  输入参数 Person 实例对象是Person 满足条件
-         *  但  Consumer<Person> consumer6 = Person1::userList;
-         *  输入参数与实例对象属于不同类型，不满足对象引用的条件，故而不能使用对象引用的条件 但可以用实例方法
-         *  Supplier<Integer> supplier = ()-> 100;
-         *  Closeable closeable = () -> {};
-         */
 
             Consumer<Person> consumer3 = (person) -> new Person().userList();
             Consumer<Person> consumer4 = Person::userList;
@@ -107,6 +108,13 @@ public class LambdaLearnTwo {
            *        lambda 表达式 (args) -> new 类名()
            */
 
+            Supplier<Person> consumer7 = () -> new Person();
+            Supplier<Person> consumer8 = Person::new;
+            consumer7.get();
+            consumer8.get();
+
+            Supplier<List> consumer9 = ArrayList::new;
+            Supplier<Set> consumer10 = HashSet::new;
 
 
 
@@ -120,6 +128,7 @@ class Person{
     private String name;
 
     public Person(){
+        System.out.println("方法引用");
     }
 
     public Person(String name){
