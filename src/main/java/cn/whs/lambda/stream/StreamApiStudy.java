@@ -23,9 +23,9 @@ public class StreamApiStudy {
         System.out.println("sum："+sum);
 
         Integer min = Arrays.asList(0, 1, 2, 4, 5, 6).stream()
-                .min((a, b) -> a - b).get();
+                .min(Integer::compare).get();
         Integer max = Arrays.asList(0, 1, 2, 4, 5, 6).stream()
-                .max((a, b) -> a - b).get();
+                .max(Integer::compare).get();
         OptionalDouble average = Arrays.asList(0, 1, 2, 4, 5, 6).stream()
                 .mapToInt(x -> x)
                 .average();
@@ -95,6 +95,16 @@ public class StreamApiStudy {
         Stream.of(personStr.split(","))
                 .map(Person::new)
                 .forEach(System.out::println);
+        //设置线程数
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","2");
+        Integer max_ = Arrays.asList(0, 1, 2, 4, 5, 6).stream()
+                .peek(x -> {
+                    System.out.println(Thread.currentThread().getName());
+                })
+                .parallel()//并行流
+                //.sequential()//顺序流
+                .max(Integer::compare).get();
+        System.out.println("max_"+max_);
 
 
     }
