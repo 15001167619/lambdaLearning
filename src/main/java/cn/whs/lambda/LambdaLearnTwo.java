@@ -107,7 +107,7 @@ public class LambdaLearnTwo {
            *  语法：类名 :: new
            *        lambda 表达式 (args) -> new 类名()
            */
-
+            //无参构造函数
             Supplier<Person> consumer7 = () -> new Person();
             Supplier<Person> consumer8 = Person::new;
             consumer7.get();
@@ -116,11 +116,18 @@ public class LambdaLearnTwo {
             Supplier<List> consumer9 = ArrayList::new;
             Supplier<Set> consumer10 = HashSet::new;
 
+            //有参构造函数
+            Consumer<String> consumer11 = (name) -> new Person(name);
+            consumer11.accept("慕小谦");
+            Consumer<String> consumer12 = Person :: new;
+            consumer12.accept("武海升");
 
+            Function<String,Person> function1 = (name) -> new Person(name);
+            System.out.println(function1.apply("小可爱"));
+            Function<String,Person> function3 = Person :: new;
+            System.out.println(function3.apply("小老虎"));
 
     }
-
-
 }
 
 class Person{
@@ -133,6 +140,7 @@ class Person{
 
     public Person(String name){
         this.name =name;
+        System.out.println(name);
     }
 
 
