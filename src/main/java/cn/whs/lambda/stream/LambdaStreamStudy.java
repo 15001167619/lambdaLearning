@@ -189,6 +189,18 @@ public class LambdaStreamStudy {
 
     }
 
+    @Test
+    //过滤
+    public void test9(){
+        List<User> userList = users().stream()
+                .filter(user -> user.getAge() >= 25)
+                .sorted(Comparator.comparing(User::getAge)
+                .thenComparing(Comparator.comparing(User::getDebut)).reversed())
+                .collect(Collectors.toList());
+
+        System.out.println(userList);
+    }
+
     private List<User> users(){
         List<User> users = new ArrayList<>();
         users.add(new User(1,18,"乔峰","丐帮", LocalDate.parse("1997-09-26")));
