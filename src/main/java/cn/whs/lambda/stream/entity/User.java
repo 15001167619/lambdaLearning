@@ -17,14 +17,14 @@ public class User {
     private Integer age;
     private String name;
     private String address;
-    private LocalDate birth;
+    private LocalDate debut;
 
-    public User(Integer id, Integer age, String name,String address, LocalDate birth) {
+    public User(Integer id, Integer age, String name,String address, LocalDate debut) {
         this.id = id;
         this.age = age;
         this.name = name;
         this.address = address;
-        this.birth = birth;
+        this.debut = debut;
     }
 
     public static int compare(User x, User y) {
