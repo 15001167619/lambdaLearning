@@ -8,6 +8,7 @@ package cn.whs.lambda.inter;
  */
 @FunctionalInterface
 public interface FunctionInterface {
+
     /**
      *  函数式接口：有且仅有一个抽象方法的接口,
      *              其中默认方法、静态方法以及Object类的方法不算在内，
