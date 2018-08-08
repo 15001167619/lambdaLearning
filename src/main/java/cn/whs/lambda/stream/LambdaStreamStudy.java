@@ -157,6 +157,10 @@ public class LambdaStreamStudy {
 
         List<User> collect = users().stream().map(mapper1).collect(Collectors.toList());
         System.out.println(collect);
+
+
+        List<User> collect1 = users().stream().map(User::getUser).collect(Collectors.toList());
+        System.out.println(collect1);
     }
 
     @Test
