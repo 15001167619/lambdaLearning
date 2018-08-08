@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -127,6 +128,20 @@ public class LambdaStreamStudy {
                 .collect(Collectors.toMap(User::getId, user -> user));
         System.out.println(map);
     }
+    @Test
+    //转换map
+    public void test60(){
+        System.out.println("***** 转换map（key :id,value :user） *******");
+        Function<User, User> mapper = (user)->{
+            String address = user.getAddress();
+            user.setAddress("address"+address);
+
+
+            return user;
+        };
+        List<User> collect = users().stream().map(mapper).collect(Collectors.toList());
+        System.out.println(collect);
+    }
 
     @Test
     //查询
@@ -208,7 +223,6 @@ public class LambdaStreamStudy {
         users.add(new User(3,23,"小龙女","活死人墓" ,LocalDate.parse("2014-12-18")));
         users.add(new User(4,18,"虚竹","少林寺" ,LocalDate.parse("2001-09-26")));
         users.add(new User(5,29,"慕小谦", "江湖",LocalDate.parse("1983-09-15")));
-        users.add(new User(6,29,"楚留香", "江湖",LocalDate.parse("2001-01-01")));
         users.add(new User(6,35,"小李飞刀", "江湖",LocalDate.parse("2005-01-01")));
         return users;
     }
