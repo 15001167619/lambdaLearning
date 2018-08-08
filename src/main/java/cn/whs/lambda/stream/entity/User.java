@@ -30,4 +30,10 @@ public class User {
     public static int compare(User x, User y) {
         return (x.getAge() > y.getAge()) ? -1 : ((x.getAge() .equals(y.getAge()) ) ? 0 : 1);
     }
+
+    public static User getUser(User usr) {
+        String address = usr.getAddress();
+        usr.setAddress("address==========>"+address);
+        return usr;
+    }
 }

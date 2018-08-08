@@ -144,6 +144,22 @@ public class LambdaStreamStudy {
     }
 
     @Test
+    //转换map  方法的引用
+    public void test61(){
+        System.out.println("***** 转换map（key :id,value :user） *******");
+        Function<User, User> mapper = (user)->{
+            String address = user.getAddress();
+            user.setAddress("address"+address);
+            return user;
+        };
+
+        Function<User, User> mapper1 = User::getUser;
+
+        List<User> collect = users().stream().map(mapper1).collect(Collectors.toList());
+        System.out.println(collect);
+    }
+
+    @Test
     //查询
     public void test7(){
         System.out.println("***** 最大年龄 *******");
