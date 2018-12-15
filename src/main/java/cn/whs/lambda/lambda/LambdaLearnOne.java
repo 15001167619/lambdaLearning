@@ -55,6 +55,7 @@ public class LambdaLearnOne {
          */
         System.out.println("##########   指定一个输入 一个输出 -> Function 不同类型 ########");
         Function<Integer,User> function = (age) -> new User(age);
+        User apply = function.apply(100);
         System.out.println(function.apply(100));
 
         Function<Integer,Integer> function1 = (parameter) -> {

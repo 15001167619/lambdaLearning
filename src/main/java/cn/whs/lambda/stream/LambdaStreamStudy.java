@@ -202,7 +202,9 @@ public class LambdaStreamStudy {
     public void test8(){
         System.out.println("***** 按地址分组 *******");
         Map<String, List<User>> mapUser = users().stream()
-                .collect(Collectors.groupingBy(User::getAddress));
+                .collect(
+                        Collectors.groupingBy(User::getAddress)
+                );
 
         System.out.println(mapUser);
 
@@ -240,7 +242,7 @@ public class LambdaStreamStudy {
         List<User> users = new ArrayList<>();
         users.add(new User(1,18,"乔峰","丐帮", LocalDate.parse("1997-09-26")));
         users.add(new User(2,18,"杨过","桃花岛", LocalDate.parse("1995-07-07")));
-        users.add(new User(3,23,"小龙女","活死人墓" ,LocalDate.parse("2014-12-18")));
+        users.add(new User(3,23,"小龙女","少林寺" ,LocalDate.parse("2014-12-18")));
         users.add(new User(4,18,"虚竹","少林寺" ,LocalDate.parse("2001-09-26")));
         users.add(new User(5,29,"慕小谦", "江湖",LocalDate.parse("1983-09-15")));
         users.add(new User(6,35,"小李飞刀", "江湖",LocalDate.parse("2005-01-01")));
